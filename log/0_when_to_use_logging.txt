@@ -1,0 +1,15 @@
+https://docs.python.org/3/howto/logging.html
+
+1. about logging
+- 로깅은 소프트웨어가 실행될 때 발생하는 이벤트를 추적하기 위한 수단
+- 이벤트는 설명메시지로 설명
+
+2. when to use logging
+-간단한 로그 사용을 위해 debug(), info(),warning(),error(),critical() 함수 제공
+
+3. logging level - 파라미터로 로깅 레벨 지정 가능 
+-DEBUG : Detailed information, typically of interest only when diagnosing problems.
+-INFO : Confirmation that things are working as expected.
+-WARNING : An indication that something unexpected happened, or indicative of some problem in the near future (e.g. ‘disk space low’). The software is still working as expected.
+-ERROR : Due to a more serious problem, the software has not been able to perform some function.
+-CRITICAL : A serious error, indicating that the program itself may be unable to continue running. 
