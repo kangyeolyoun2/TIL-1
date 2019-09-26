@@ -1,7 +1,6 @@
 # How To Install Apache-Spark
 
 ### 1. Install JAVA8
---------------------
 brew install java8 # spark require only java8 version.
 
 #on terminal : environment path setting
@@ -13,15 +12,12 @@ vi ~/.bash_profile
 <pre>JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 PATH=$PATH:$JAVA_HOME/bin
 export JAVA_HOME
-export PATH<code>
+export PATH<pre>
 '''
 
 java -version # check java version
 
 ### 2. Install Spark
----------------------
 brew install apache-spark
 
-### 3. we use data in data-engineering study
--------------------------------------------- 
 https://github.com/FVBros/Spark-The-Definitive-Guide
