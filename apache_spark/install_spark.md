@@ -4,17 +4,17 @@
 --------------------
 brew install java8 # spark require only java8 version.
 
-#on terminal : environment path setting
+**on terminal** : environment path setting
 
 cd /Library/Java/JavaVirtualMachines
 ls # check jdk file
 vi ~/.bash_profile
-'''
-<pre>JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
+```
+JAVA_HOME=/Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home
 PATH=$PATH:$JAVA_HOME/bin
 export JAVA_HOME
-export PATH<code>
-'''
+export PATH
+```
 
 java -version # check java version
 
