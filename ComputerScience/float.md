@@ -20,7 +20,7 @@
 
 
 ## 2. 부동소수점
-<img src="./imgs/3-2.png" width="60%">
+<img src="../imgs/3-2.png" width="60%">
 
 - `단정도 (single - precision)` 부동소수점
     - 실수를 32비트(4바이트)로 표현.
@@ -35,12 +35,12 @@
     
 ## 3. 1바이트 실수 자료형 설계하기 
 
-<img src="./imgs/3-3-1.png" width="60%">
+<img src="../imgs/3-3-1.png" width="60%">
 
 - 1.man은 가수, 2는 밑수, exp-bias 지수를 의미.
 - `정규화 (normalization)` 란 소수점 왼쪽에 위치한 가수 부분을 밑수보다 작은 자연수가 되도록 만드는 것. 
 - 메모리 구조 
-<img src="./imgs/3-3-2.png" width="60%">
+<img src="../imgs/3-3-2.png" width="60%">
         
     - 1바이트의 메모리 구조를 정하고 man과 exp값만 저장하면 설계가 끝남. 
     - bias는 지수의 부호를 결정하는 데 사용. bias는 $2^(n-1)-1$
