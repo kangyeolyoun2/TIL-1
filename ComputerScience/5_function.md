@@ -113,7 +113,7 @@ int test(int a, int b) // # 1
 ```
 ---
 - 결과 값은 다음 이미지와 함께보자
-<img src="./img/5-2.png" width="40%">
+<img src="./imgs/5-2.png" width="40%">
 
 - main()에 스택프레임을 먼저 쌓고, test() 스택 프레임이 쌓입니다.
 - 각각의 스택 프레임은 독립된 공간이며, test() 실행후 사라지고 이후 남은 main() 실행
@@ -149,10 +149,10 @@ int main(void)
 -  `int *`은 int형 포인터를 의미합니다 #1
 
 - ` #4번 실행전`
-<img src="./img/5-6.png" width="40%">
+<img src="./imgs/5-6.png" width="40%">
 
 - ` #4번 실행 후`
-<img src="./img/5-7.png" width="40%">
+<img src="./imgs/5-7.png" width="40%">
 
 
 ### 3.3 객체 참조에 의한 전달(Python)
@@ -187,10 +187,10 @@ if __name__ == "__main__":
 ---
 
 - Code 1: 참조한 리스트에 접근해 변경을 시도
-<img src="./img/5-3-3-1.jpeg" width="60%">
+<img src="./imgs/5-3-3-1.jpeg" width="60%">
 
 - Code 2: 아예 다른 리스트를 메모리 공간에 새로 만든 다음 이를 참조해 리스트를 변경
-<img src="./img/5-3-3-2.jpeg" width="60%">
+<img src="./imgs/5-3-3-2.jpeg" width="60%">
 
 
 ### 3.4 변경 불가능 객체는 함수 인자로 전달해 변경할 수 없을까?
