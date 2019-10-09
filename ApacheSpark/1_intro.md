@@ -14,9 +14,9 @@
 
 ### 2) 컴퓨팅 엔진
 - 기능을 `컴퓨팅 엔진(연산 기능)`에 제한을 두며, 영구 저장소의 역할은 수행하지 않음.
-- 애저 스토리지, 아마존 S3, 아파치 하둡, 아파치 카산드라, 아파치 카프카 등의 `저장소를 지원`.
+- 애저 스토리지, 아마존 S3, 아파치 하둡, 아파치 카산드라, 아파치 카프카 등의 `저장소 지원`.
 - 서로 다른 저장소 시스템을 매우 유사하게 볼 수 있도록 설계. 
-- 하둡 저장소와 잘 호환되며, 공개형 클라우드 환경이나 하둡 아키텍처를 사용할 수 없는 환경에서 많이 사용
+- 하둡 저장소와 잘 호환되며, 공개형 클라우드 환경이나 하둡 아키텍처를 사용할 수 없는 환경에서 많이 사용.
 
 ### 3) 라이브러리 
 - 스파크 컴포넌트는 통합 API를 제공하는 `통합 엔진 기반의 자체 라이브러리`. 
@@ -24,7 +24,7 @@
 
 ## 1.2 스파크의 등장 배경
 - 프로세서의 성능 향상의 제약으로 단일 프로세서 성능을 향상시키는 것이 아닌 `병렬 CPU 코어를 추가`하는 방향으로 선회.
-- 애플리케이션의 성능 향상을 위해 병렬 처리가 필요해짐
+- 애플리케이션의 성능 향상을 위해 병렬 처리가 필요.
 
 
 ```python
@@ -47,8 +47,6 @@ exec(open(os.path.join(os.environ["SPARK_HOME"], 'python/pyspark/shell.py')).rea
 
 
 # Chapter 2. 스파크 간단히 살펴보기
-- DataFrame, SQL을 사용한 클러스터, 스파크 애플리케이션
-- 구조적 API
 
 ## 2.1 스파크 기본 아키텍처
 - `컴퓨터 클러스터`는 여러 컴퓨터의 자원을 모아 하나의 컴퓨터처럼 사용. (대규모 정보를 연산할 만한 성능을 가짐.)
@@ -57,13 +55,13 @@ exec(open(os.path.join(os.environ["SPARK_HOME"], 'python/pyspark/shell.py')).rea
 - 사용자는 클러스터 매니저에 스파크 애플리케이션을 제출하며, 클러스터 매니저는 애플리케이션 실행에 필요한 자원을 할당함.
 
 ### 스파크 애플리케이션
-<img src="./TIL/ApacheSpark/imgs/3-1.jpeg" width="60%">
+<img src="./imgs/3-1.jpeg" width="60%">
 
-- `드라이버(driver) 프로세스`와 다수의 `익스큐터(executor) 프로세스`로 구성
+- `드라이버(driver) 프로세스`와 다수의 `익스큐터(executor) 프로세스`로 구성.
 - 드라이버 프로세스 : 스파크 애플리케이션 정보의 유지 관리, 사용자 프로그램이나 입력에 대한 응답, 전반적인 익스큐터 프로세스의 작업과 관련된 분석, 배포, 스케줄링 역할. 
 - 익스큐터 프로세스 : 드라이버 프로세스가 할당한 작업 수행, 드라이버 프로세스에 보고. 
 - 하나의 클러스터에서 여러 개의 스파크 애플리케이션 실행 가능.
-- 대화형 모드로 스파크를 시작하면, 스파크 애플리케이션을 관리하는 `SparkSession`이 자동으로 생성
+- 대화형 모드로 스파크를 시작하면, 스파크 애플리케이션을 관리하는 `SparkSession`이 자동으로 생성.
 
 ## 2.2 스파크 API
 - 스파크 언어 API를 이용하면 다양한 프로그래밍 언어로 스파크 코드를 실행할 수 있음. 
@@ -95,14 +93,13 @@ myRange = spark.range(1000).toDF("number")
 ## 2.5 트랜스포메이션
 - 스파크의 핵심 데이터 구조는 `불변성을 지님`. 따라서 `변경`을 하려면 원하는`트랜스포메이션`명령을 스파크에 알려줘야함.
 - 트랜스포메이션만 지정하고 액션을 호출하지 않으면 스파크는 실제 트랜스포메이션을 수행하지 않음. 
-- 트랜스포메이션의 논리적 실행계획은 DataFrame의 계보나 스파크의 쿼리 실행 계획을 확인 가능.
 - 실행 계획은 트랜스포메이션의 지향성 비순환 그래프. 
 - 유형
     - 좁은 트랜스포메이션
         - 각 입력 파티션이 하나의 출력 파티션에만 영향을 미침. 
     - 넓은 트랜스포메이션
         - 하나의 입력 파티션이 여러 출력 파티션에 영향을 미침.
-        - 셔플....(?)
+        - 셔플
  
 ### 지연 연산
 - 특정 연산 명령이 내려진 즉시 데이터를 수정하지 않고, 원시 데이터에 적용할 `트랜스포메이션의 실행계획을 생성`.
@@ -112,7 +109,7 @@ myRange = spark.range(1000).toDF("number")
 ## 2.6 액션
 - 실제 연산을 수행하기 위한 명령.
 - 액션을 지정하면 `스파크 잡`이 시작. 
-- 스파크 잡은 필터(좁은 트랜스포메이션)를 수행한 후 파티션별로 레코드 수를 카운트(넓은 트랜스포메이션)함. 각 언어에 적합한 네이티브 객체에 결과를 모음  .... (?)
+- 스파크 잡은 필터(좁은 트랜스포메이션)를 수행한 후 파티션별로 레코드 수를 카운트(넓은 트랜스포메이션)하며, 각 언어에 적합한 네이티브 객체에 결과를 모음.
 
 ## 2.7 스파크 UI
 - 클러스터에서 실행 중인 `스파크 잡의 진행 상황을 모니터링`할 때 사용
@@ -131,7 +128,6 @@ myRange = spark.range(1000).toDF("number")
 
 ```python
 # 데이터 읽기
-# 스키마 정보를 알아내는 스키마 추론 기능 사용
 
 flightData2015 = spark\
     .read\
@@ -146,12 +142,12 @@ flightData2015.sort("count").explain()
 ```
 
     == Physical Plan ==
-    *(2) Sort [count#24 ASC NULLS FIRST], true, 0
-    +- Exchange rangepartitioning(count#24 ASC NULLS FIRST, 200)
-       +- *(1) FileScan csv [DEST_COUNTRY_NAME#22,ORIGIN_COUNTRY_NAME#23,count#24] Batched: false, Format: CSV, Location: InMemoryFileIndex[file:/Users/baek/Documents/Notebook/github/datas/2015-summary.csv], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<DEST_COUNTRY_NAME:string,ORIGIN_COUNTRY_NAME:string,count:int>
+    *(2) Sort [count#123 ASC NULLS FIRST], true, 0
+    +- Exchange rangepartitioning(count#123 ASC NULLS FIRST, 5)
+       +- *(1) FileScan csv [DEST_COUNTRY_NAME#121,ORIGIN_COUNTRY_NAME#122,count#123] Batched: false, Format: CSV, Location: InMemoryFileIndex[file:/Users/baek/Documents/Notebook/github/datas/2015-summary.csv], PartitionFilters: [], PushedFilters: [], ReadSchema: struct<DEST_COUNTRY_NAME:string,ORIGIN_COUNTRY_NAME:string,count:int>
 
 
-### 액션 실행 설정
+### 액션 실행 전 설정
 - 셔플 수행 시 기본적으로 200개의 셔플 파티션 생성.
 - 예제에서는 출력 파티션의 수를 5로 설정.
 
@@ -171,7 +167,7 @@ flightData2015.sort("count").take(2)
 
 ### SQL 사용 작업
 - 스파크 SQL을 사용하면 모든 DataFrame을 테이블이나 뷰(임시 테이블)로 등록한 후 SQL쿼리를 사용할 수 있음. 
-- 스파크에서는 SQL쿼리를 DataFrame코드(R,파이썬,스칼라,자바 코드)와 같은 실행계획으로 컴파일함.
+- 스파크에서는 SQL쿼리를 DataFrame코드(R,파이썬,스칼라,자바 코드)와 `같은 실행계획으로 컴파일`함.
 
 
 ```python
