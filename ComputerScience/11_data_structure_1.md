@@ -197,7 +197,7 @@ class Linked_list:
                 return None
 ```
 
-<img src="./imgs/111-2.png" width="60%">
+<img src="./imgs/11-2.png" width="60%">
 <img src="./imgs/11-3.png" width="60%">
 <img src="./imgs/11-4.png" width="60%">
 <img src="./imgs/11-5.png" width="60%">
