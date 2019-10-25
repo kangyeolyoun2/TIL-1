@@ -71,7 +71,7 @@ class Node:
     - head : 연결 리스트의 첫 번째 데이터
     - tail : 연결 리스트의 마지막 데이터
     - d_size : 리스트에 저장된 데이터의 개수 
-    <img src="./imgs/11-1.jpeg" width="60%">
+    <img src="./imgs/11-1.png" width="60%">
 - ADT
     - append 
         - 데이터를 삽입하는 함수
@@ -197,11 +197,11 @@ class Linked_list:
                 return None
 ```
 
-<img src="./imgs/111-2.jpeg" width="60%">
-<img src="./imgs/11-3.jpeg" width="60%">
-<img src="./imgs/11-4.jpeg" width="60%">
-<img src="./imgs/11-5.jpeg" width="60%">
-<img src="./imgs/11-6.jpeg" width="60%">
+<img src="./imgs/111-2.png" width="60%">
+<img src="./imgs/11-3.png" width="60%">
+<img src="./imgs/11-4.png" width="60%">
+<img src="./imgs/11-5.png" width="60%">
+<img src="./imgs/11-6.png" width="60%">
 
 ### 1.3 스택 (Stack)
 - 데이터를 차곡차곡 쌓아 올린 모습
